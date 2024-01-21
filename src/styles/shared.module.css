@@ -24,6 +24,11 @@
 	color: #000;
 }
 
+.game-button:disabled {
+	cursor: not-allowed;
+	color: #555;
+}
+
 .game-container {
 	display: flex;
 	justify-content: space-between;

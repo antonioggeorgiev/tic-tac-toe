@@ -23,7 +23,7 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-	background: black;
+	background: #000;
 }
 
 ::-webkit-scrollbar-thumb {

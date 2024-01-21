@@ -1,28 +1,24 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import sharedStyle from '../styles/shared.module.css';
 import style from '../styles/game-settings.module.css';
 import { parseTime } from '../utility/parse-time.utility';
 import classnames from 'classnames';
+import { GameStatus } from '../models/game-models';
 
-const GameTimer = ({
-	isGameRunning,
-	setTime,
-	time,
-}: {
-	isGameRunning: boolean;
-	setTime: React.Dispatch<React.SetStateAction<number>>;
-	time: number;
-}) => {
+const GameTimer = ({ gameStatus }: { gameStatus: GameStatus }) => {
+	const [time, setTime] = useState(0);
+
 	useEffect(() => {
 		let interval: NodeJS.Timer | undefined;
-		if (isGameRunning) {
+		if (gameStatus === GameStatus.NotStarted) {
 			setTime(0);
+		} else if (gameStatus === GameStatus.Running) {
 			interval = setInterval(() => {
 				setTime((prev) => prev + 1);
 			}, 1000);
 		}
 		return () => clearInterval(interval);
-	}, [isGameRunning, setTime]);
+	}, [gameStatus, setTime]);
 
 	return (
 		<div

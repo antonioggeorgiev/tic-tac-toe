@@ -1,3 +1,4 @@
+import { GameStatus } from '../models/game-models';
 import style from '../styles/game-settings.module.css';
 import GameHistory from './GameHistory';
 import GameTimer from './GameTimer';
@@ -5,24 +6,20 @@ import GameTimer from './GameTimer';
 const GameSettings = ({
 	turns,
 	setCurrentTurn,
-	isGameRunning,
-	time,
-	setTime,
+	gameStatus,
 }: {
 	turns: number;
 	setCurrentTurn: React.Dispatch<React.SetStateAction<number>>;
-	isGameRunning: boolean;
-	setTime: React.Dispatch<React.SetStateAction<number>>;
-	time: number;
+	gameStatus: GameStatus;
 }) => {
 	return (
 		<div className={style['game-settings-container']}>
-			<GameTimer
-				isGameRunning={isGameRunning}
-				time={time}
-				setTime={setTime}
+			<GameTimer gameStatus={gameStatus} />
+			<GameHistory
+				turns={turns}
+				setCurrentTurn={setCurrentTurn}
+				gameStatus={gameStatus}
 			/>
-			<GameHistory turns={turns} setCurrentTurn={setCurrentTurn} />
 		</div>
 	);
 };

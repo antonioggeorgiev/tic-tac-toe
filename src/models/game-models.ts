@@ -3,4 +3,10 @@ export enum GamePlayer {
 	'O' = 'O',
 }
 
+export enum GameStatus {
+	NotStarted,
+	Running,
+	Finished,
+}
+
 export type GameStage = (GamePlayer | undefined)[];

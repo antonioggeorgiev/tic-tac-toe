@@ -1,21 +1,24 @@
-import { GamePlayer } from '../models/game-models';
+import { GamePlayer, GameStatus } from '../models/game-models';
 import GameHeader from './GameHeader';
 
 const GameLabel = ({
 	winner,
 	currentPlayer,
 	isDraw,
+	gameStatus,
 }: {
 	currentTurn: number;
 	winner: GamePlayer | null;
 	currentPlayer: GamePlayer;
 	isDraw: boolean;
+	gameStatus: GameStatus;
 }) => {
 	let message;
-	if (winner) {
-		message = `Player ${winner} won!`;
-	} else if (isDraw) {
-		message = 'Draw!';
+	if (gameStatus === GameStatus.NotStarted) {
+		message = `Player ${currentPlayer} starts the game`;
+	} else if (gameStatus === GameStatus.Finished) {
+		if (isDraw) message = 'Draw!';
+		else message = `Player ${winner} won!`;
 	} else {
 		message = `Player ${currentPlayer}'s turn`;
 	}

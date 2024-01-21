@@ -1,4 +1,4 @@
-import { GamePlayer, GameStage } from '../models/game-models';
+import { GamePlayer, GameStage, GameStatus } from '../models/game-models';
 import GameCell from './GameCell';
 import GameLabel from './GameLabel';
 import sharedStyle from '../styles/shared.module.css';
@@ -14,6 +14,7 @@ const GameGrid = ({
 	winner,
 	restartGame,
 	isDraw,
+	gameStatus,
 }: {
 	gameStage: GameStage;
 	currentTurn: number;
@@ -22,6 +23,7 @@ const GameGrid = ({
 	winner: GamePlayer | null;
 	restartGame: () => void;
 	isDraw: boolean;
+	gameStatus: GameStatus;
 }) => {
 	return (
 		<div
@@ -35,6 +37,7 @@ const GameGrid = ({
 				currentTurn={currentTurn}
 				winner={winner}
 				isDraw={isDraw}
+				gameStatus={gameStatus}
 			/>
 			<div className={style['game-grid']}>
 				{gameStage.map((cell, index) => (
@@ -44,11 +47,11 @@ const GameGrid = ({
 						onCellClick={onCellClick}
 						cell={cell}
 						currentPlayer={currentPlayer}
-						winner={winner}
+						gameStatus={gameStatus}
 					/>
 				))}
 			</div>
-			{(winner || isDraw) && (
+			{gameStatus === GameStatus.Finished && (
 				<GameRestartButton restartGame={restartGame} />
 			)}
 		</div>

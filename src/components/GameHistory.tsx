@@ -3,14 +3,18 @@ import sharedStyle from '../styles/shared.module.css';
 import { createArray } from '../utility/create-array.utility';
 import classnames from 'classnames';
 import style from '../styles/game-settings.module.css';
+import { GameStatus } from '../models/game-models';
 
 const GameHistory = ({
 	turns,
 	setCurrentTurn,
+	gameStatus,
 }: {
 	turns: number;
 	setCurrentTurn: React.Dispatch<React.SetStateAction<number>>;
+	gameStatus: GameStatus;
 }) => {
+	console.log(gameStatus);
 	return (
 		<div
 			className={classnames(
@@ -31,6 +35,7 @@ const GameHistory = ({
 							e.preventDefault();
 							setCurrentTurn(turn);
 						}}
+						disabled={gameStatus === GameStatus.Finished}
 					>
 						Go to turn {turn}
 					</button>

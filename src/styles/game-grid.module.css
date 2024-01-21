@@ -17,16 +17,16 @@
 }
 
 .game-cell {
-	outline: 2px solid white;
+	outline: 2px solid #fff;
 	padding: 5px 15px;
 	font-weight: 700;
 	font-size: 4rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: white;
+	color: #fff;
 	cursor: pointer;
-	background-color: black;
+	background-color: #000;
 }
 
 .game-cell-active {
