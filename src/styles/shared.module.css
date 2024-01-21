@@ -1,0 +1,35 @@
+.game-item-container {
+	border: 5px solid #189ad3;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	padding: 10px 5px;
+	align-items: center;
+}
+
+.game-button {
+	display: block;
+	color: #fff;
+	margin-bottom: 10px;
+	padding: 25px;
+	border-radius: 5px;
+	border: 2px solid #189ad3;
+	background-color: #000;
+	font-size: 1rem;
+}
+
+.game-button:hover {
+	cursor: pointer;
+	background-color: #189ad3;
+	color: #000;
+}
+
+.game-container {
+	display: flex;
+	justify-content: space-between;
+	align-self: center;
+	padding: 20px;
+	height: 80%;
+	width: 80%;
+	gap: 50px;
+}

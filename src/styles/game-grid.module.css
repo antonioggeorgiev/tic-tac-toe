@@ -1,0 +1,35 @@
+.game-grid-container {
+	flex-grow: 2;
+}
+.game-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	gap: 1px;
+	padding: 10px;
+	height: 50%;
+	width: 50%;
+}
+
+.game-restart-button {
+	width: 50%;
+	margin-top: 20px;
+}
+
+.game-cell {
+	outline: 2px solid white;
+	padding: 5px 15px;
+	font-weight: 700;
+	font-size: 4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	cursor: pointer;
+	background-color: black;
+}
+
+.game-cell-active {
+	background-color: #189ad3;
+	color: #000;
+}

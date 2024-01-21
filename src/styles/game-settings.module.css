@@ -1,0 +1,32 @@
+.game-settings-container {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	color: white;
+}
+
+.game-history-container {
+	flex-grow: 2;
+}
+
+.game-turns-history-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0px 20px;
+	width: 100%;
+	overflow-y: scroll;
+}
+
+.game-turn-button {
+	width: 100%;
+}
+
+.game-timer-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 52px;
+	font-weight: 700;
+}
