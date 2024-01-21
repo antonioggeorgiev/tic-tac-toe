@@ -1,0 +1,133 @@
+.game-container {
+	display: flex;
+	justify-content: space-between;
+	align-self: center;
+	padding: 20px;
+	height: 80%;
+	width: 80%;
+	gap: 50px;
+}
+
+.header {
+	font-size: 2rem;
+	font-weight: 700;
+	height: 20%;
+}
+
+.game-grid-container,
+.game-history-container,
+.game-timer-container {
+	border: 5px solid #189ad3;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	padding: 10px 5px;
+	align-items: center;
+	flex-grow: 2;
+}
+
+.game-timer-container {
+	height: 20%;
+	flex-grow: 0;
+}
+.game-turns-history-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0px 20px;
+	width: 100%;
+	overflow-y: scroll;
+}
+.game-grid-container {
+	flex-grow: 2;
+}
+
+.game-header-row {
+	display: flex;
+	justify-content: center;
+	height: 20%;
+	width: 100%;
+	text-align: center;
+	color: white;
+	font-size: 34px;
+	padding: 0px 20px;
+}
+
+.game-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	gap: 1px;
+	padding: 10px;
+	height: 50%;
+	width: 50%;
+}
+
+.game-cell {
+	outline: 2px solid white;
+	padding: 5px 15px;
+	font-weight: 700;
+	font-size: 4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	cursor: pointer;
+	background-color: black;
+}
+
+.game-cell-active {
+	background-color: #189ad3;
+	color: #000;
+}
+
+.game-history {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.game-turn-button,
+.game-restart-button {
+	display: block;
+	color: white;
+	margin-bottom: 10px;
+	padding: 25px;
+	border-radius: 5px;
+	border: 2px solid #189ad3;
+	background-color: black;
+	font-size: 1rem;
+}
+
+.game-turn-button:hover,
+.game-restart-button:hover {
+	cursor: pointer;
+	background-color: #189ad3;
+	color: #000;
+}
+
+.game-turn-button {
+	width: 100%;
+}
+
+.game-restart-button {
+	width: 50%;
+	margin-top: 20px;
+}
+
+.game-settings-container {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	color: white;
+}
+
+.game-timer-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 52px;
+	font-weight: 700;
+}
