@@ -11,22 +11,14 @@ const Game = () => {
 		Array(9).fill(undefined),
 	]);
 	const [currentTurn, setCurrentTurn] = useState(0);
-	const calculateGameStatus = (
-		currentTurn: number,
-		winner: GamePlayer | null
-	) => {
-		if (currentTurn === 0) return GameStatus.NotStarted;
-		if (currentTurn === MAX_TURNS || winner) return GameStatus.Finished;
-		return GameStatus.Running;
-	};
-	const gameStatus = calculateGameStatus(
-		currentTurn,
-		calculateWinner(gameHistory[currentTurn])
-	);
 
 	const isDraw = currentTurn === MAX_TURNS;
 	const currentPlayer = currentTurn % 2 === 0 ? GamePlayer.X : GamePlayer.O;
 	const winner = calculateWinner(gameHistory[currentTurn]);
+	const gameStatus = useGameStatus(
+		currentTurn,
+		calculateWinner(gameHistory[currentTurn])
+	);
 
 	useEffect(() => {
 		setCurrentTurn(gameHistory.length - 1);
@@ -72,3 +64,9 @@ const Game = () => {
 };
 
 export default Game;
+
+const useGameStatus = (currentTurn: number, winner: GamePlayer | null) => {
+	if (currentTurn === 0) return GameStatus.NotStarted;
+	if (currentTurn === MAX_TURNS || winner) return GameStatus.Finished;
+	return GameStatus.Running;
+};
