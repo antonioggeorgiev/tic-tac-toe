@@ -26,6 +26,7 @@
 
 .game-button:disabled {
 	cursor: not-allowed;
+	background-color: #000;
 	color: #555;
 }
 
