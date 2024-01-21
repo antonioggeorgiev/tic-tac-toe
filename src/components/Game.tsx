@@ -37,7 +37,7 @@ const Game = () => {
 
 	const winner = calculateWinner(gameHistory[currentTurn]);
 	const isGameRunning = gameHistory.length > 1 && !winner && !isDraw;
-	console.log(isGameRunning, 33333333);
+
 	const onCellClick = (cellIndex: number) => {
 		const currentGameStage = gameHistory[currentTurn];
 		if (currentGameStage[cellIndex] || winner) return;
